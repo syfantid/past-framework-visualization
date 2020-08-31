@@ -1,0 +1,103 @@
+
+@mixin rank($color) {
+  background-color: $color;
+  -webkit-box-shadow: 3px 3px 0px 0px lighten($color, 10);
+  -moz-box-shadow: 3px 3px 0px 0px lighten($color, 10);
+  box-shadow: 3px 3px 0px 0px lighten($color, 10);
+}
+
+h1 {
+  color: #023D8B;
+  margin-bottom: 10px;
+  margin-top: 50px;
+
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  margin-left: 20px;
+}
+
+.periodic-table {
+  .periodic-column {
+    width: 175px;
+    float: left;
+
+    margin-left: 20px;
+
+    h4 {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      word-wrap: break-word;
+      word-break: break-word;
+
+      color: #023D8B;
+      text-transform: uppercase;
+
+      font-size: 0.8rem;
+    }
+
+    .periodic-cell.periodic-rank-1 {
+      @include rank(#E69CC7);
+    }
+    .periodic-cell.periodic-rank-2 {
+      @include rank(#A46FB0);
+    }
+    .periodic-cell.periodic-rank-3 {
+      @include rank(#7E5CA5);
+    }
+    .periodic-cell.periodic-rank-4 {
+      @include rank(#524C99);
+    }
+    .periodic-cell.periodic-rank-5 {
+      @include rank(#023D8B);
+    }
+
+    .periodic-cell {
+      color: white;
+      height: 95px;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+
+      cursor: pointer;
+
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+
+      .periodic-cell-slug {
+        font-weight: 700;
+        font-size: 30px;
+        font-family: 'Chakra Petch', sans-serif;
+      }
+
+      .periodic-cell-title {
+        font-weight: normal;
+        font-size: 15px;
+        margin-top: -5px;
+      }
+
+      .periodic-cell-rank {
+        font-weight: bold;
+
+        float: right;
+        margin-right: -10px;
+        margin-top: -10px;
+      }
+    }
+
+    .periodic-cell:hover {
+      -moz-transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -o-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.periodic-cell-container, .periodic-cell-outer, .periodic-cell {
+  width: 100%;
+}
