@@ -32,10 +32,9 @@ periodicTable.addColumn('Social Support')
 
 periodicTable.addColumn('System Credibility')
   .add('Au', 'Authority', 2)
-  .add('Sr', 'Surface Credibility', 2)
+  .add('Rf', 'Real-world Feel', 2)
   .add('Ex', 'Expertise', 2)
-  .add('Tr', 'Trustworthiness', 1)
-  .add('Rf', 'Real-world Feel', 1);
+  .add('Tr', 'Trustworthiness', 1);
 
 periodicTable.addColumn('Other')
   .add('Gs', 'Goal-setting', 5)
