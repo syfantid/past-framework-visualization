@@ -1,43 +1,137 @@
 import { PeriodicTable } from './app.model';
+import { HttpClient } from '@angular/common/http';
+import * as Papa from 'papaparse';
 
-export let periodicTable = new PeriodicTable();
+/**
+ * Calculate weighted sum.
+ *
+ * @param efficacy
+ * @param frequency
+ * @param weight
+ */
+function calculateWeightedSum(efficacy: number, frequency: number, weight: number): number {
+  const weight1 = weight;
+  const weight2 = 1 - weight;
+  return weight1 * efficacy + weight2 * frequency;
+}
 
-// Add data.
-periodicTable.addColumn('Primary Task Support')
-  .add('Sm', 'Self-monitoring', 5)
-  .add('Pe', 'Personalization', 4)
-  .add('Rd', 'Reduction', 3)
-  .add('Ta', 'Tailoring', 2)
-  .add('Tu', 'Tunneling', 2)
-  .add('Su', 'Simulation', 2)
-  .add('Rh', 'Rehearsal', 1);
+/**
+ * Normalize Value.
+ *
+ * @param val
+ * @param max
+ * @param min
+ */
+function normalizeValue(val: number, max: number, min: number): number {
+  return (val - min) / (max - min);
+}
 
-periodicTable.addColumn('Dialogue')
-  .add('Re', 'Rewards', 4)
-  .add('Su', 'Suggestion', 3)
-  .add('Rm', 'Reminders', 3)
-  .add('Si', 'Similarity', 3)
-  .add('Pr', 'Praise', 3)
-  .add('Li', 'Liking', 2)
-  .add('Sr', 'Social Role', 2);
+/**
+ * Normalize scores
+ *
+ * @param data
+ */
+function normalizeScores(data: any): any {
+  // Determinate the min and max of the table.
+  let min = 1;
+  let max = 0;
+  for (const row of data) {
+    if (row.weightedScore > max) {
+      max = row.weightedScore;
+    }
+    if (row.weightedScore < min) {
+      min = row.weightedScore;
+    }
+  }
 
-periodicTable.addColumn('Social Support')
-  .add('Sc', 'Social Comparison', 3)
-  .add('Sl', 'Social Learning', 3)
-  .add('Co', 'Cooperation', 3)
-  .add('Cm', 'Competition', 2)
-  .add('Rc', 'Recognition', 2)
-  .add('Sf', 'Social Facilitation', 2)
-  .add('Ni', 'Normative Influence', 2);
+  // Normalize for every item in the data.
+  for (const row of data) {
+    row.normalizedScore = normalizeValue(row.weightedScore, max, min);
+    if (row.normalizedScore >= 0.8) {
+      row.finalScore = 5;
+    } else if (row.normalizedScore >= 0.6) {
+      row.finalScore = 4;
+    } else if (row.normalizedScore >= 0.4) {
+      row.finalScore = 3;
+    } else if (row.normalizedScore >= 0.2) {
+      row.finalScore = 2;
+    } else {
+      row.finalScore = 1;
+    }
+  }
 
-periodicTable.addColumn('System Credibility')
-  .add('Au', 'Authority', 2)
-  .add('Rf', 'Real-world Feel', 2)
-  .add('Ex', 'Expertise', 2)
-  .add('Tr', 'Trustworthiness', 1);
+  return data;
+}
 
-periodicTable.addColumn('Other')
-  .add('Gs', 'Goal-setting', 5)
-  .add('Pu', 'Punishment', 2)
-  .add('Gi', 'General Information', 1)
-  .add('Va', 'Variability', 1);
+/**
+ * Processing CSV file.
+ *
+ * @param rawData
+ * @param userWeight
+ */
+function processCsv(rawData: string, userWeight: number): PeriodicTable {
+  const parsed = Papa.parse(rawData, {header: true});
+  if (!parsed.data) {
+    return null;
+  }
+
+  let data = [];
+
+  // Calculate weighted scores.
+  for (const idx in parsed.data) {
+    if (! parsed.data.hasOwnProperty(idx)) {
+      continue;
+    }
+    const row = parsed.data[idx];
+    if (! row.hasOwnProperty('efficacy')) {
+      continue;
+    }
+    data[idx] = parsed.data[idx];
+    data[idx].weightedScore = calculateWeightedSum(
+      Number.parseFloat(row.efficacy), Number.parseFloat(row.frequency), userWeight
+    );
+  }
+
+  // Normalize weighted scores to determinate the score.
+  data = normalizeScores(data);
+
+  // Group by category.
+  const categoryData: any = {'Primary Task Support': [], Dialogue: [], 'Social Support': [], 'System Credibility': [], Other: []};
+  for (const row of data) {
+    if (! categoryData.hasOwnProperty(row.category)) {
+      categoryData[row.category] = [];
+    }
+    categoryData[row.category].push(row);
+  }
+
+  // Sort categories.
+  for (const cat in categoryData) {
+    categoryData[cat] = categoryData[cat].sort((a, b) => {return a.finalScore > b.finalScore ? -1 : a.finalScore < b.finalScore ? 1 : 0});
+  }
+
+  // Create table.
+  const table = new PeriodicTable();
+  for (const cat in categoryData) {
+    const categoryColumn = table.addColumn(cat);
+    for (const row of categoryData[cat]) {
+      categoryColumn.add(row.slug, row.name, row.finalScore);
+    }
+  }
+
+  return table;
+}
+
+// Add data from CSV file.
+export async function loadData(http: HttpClient, userWeight: number = 0.5): Promise<PeriodicTable> {
+  return new Promise((resolve, reject) => {
+    http.get('assets/past_output.csv', {responseType: 'text'})
+      .subscribe(
+        data => {
+          return resolve(processCsv(data, userWeight));
+        },
+        error => {
+          return resolve(null);
+        }
+      );
+  });
+}
