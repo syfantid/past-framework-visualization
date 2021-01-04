@@ -10,7 +10,7 @@ periodicTable.addColumn('Primary Task Support')
   .add('Ta', 'Tailoring', 2)
   .add('Tu', 'Tunneling', 2)
   .add('Su', 'Simulation', 2)
-  .add('Rh', 'Rehearsed', 1);
+  .add('Rh', 'Rehearsal', 1);
 
 periodicTable.addColumn('Dialogue')
   .add('Re', 'Rewards', 4)
