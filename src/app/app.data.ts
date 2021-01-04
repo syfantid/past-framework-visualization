@@ -109,6 +109,8 @@ function processCsv(rawData: string, userWeight: number): PeriodicTable {
     categoryData[cat] = categoryData[cat].sort((a, b) => {return a.finalScore > b.finalScore ? -1 : a.finalScore < b.finalScore ? 1 : 0});
   }
 
+
+
   // Create table.
   const table = new PeriodicTable();
   for (const cat in categoryData) {
