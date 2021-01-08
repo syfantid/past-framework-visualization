@@ -1,0 +1,85 @@
+<main>
+<section id="hero">
+  <div id="heroImage">
+    <div id="title" class="row">
+      <div class="col-lg-4 d-none d-lg-flex">
+        <h1>Learn the secrets behind successful<br>Self-Tracking<br>Technologies</h1>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div id="title-sm" class="row justify-content-center pt-5">
+      <div class="col-8 d-lg-none text-center">
+        <h1>Learn the secrets behind successful Self-Tracking Technologies</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="periodicTable" class="container pt-5">
+<div class="adjustment">
+  <div class="text-center">
+    <h4>Adjust the weights to your application's needs.</h4>
+  </div>
+
+  <div class="row" style="margin-top: 20px">
+    <div class="col">
+      <p class="text-center">
+        Efficacy Weight: {{ weight1 }}
+      </p>
+      <input type="range"
+             min="0.0" max="1.0" step="0.05"
+             #slider1
+             (input)="changeWeights(slider1.value)"
+             class="form-control"
+             value="0.5"
+      />
+    </div>
+    <div class="col">
+      <p class="text-center">
+        Frequency Weight: {{ weight2 }}
+      </p>
+      <input type="range"
+             min="0.0"
+             max="1.0"
+             step="0.05"
+             disabled="disabled"
+             [(ngModel)]="weight2" class="form-control" />
+    </div>
+  </div>
+</div>
+
+
+<h1 class="py-5">Periodic Table of Successful Health Behaviour Change</h1>
+
+<div *ngIf="! table">
+  <p class="text-center">
+    Loading ...
+  </p>
+</div>
+
+<div class="periodic-table" *ngIf="table">
+  <div class="periodic-column" *ngFor="let col of table.columns">
+    <h4>{{ col.name }}</h4>
+
+    <div class="periodic-cell-container">
+      <div class="periodic-cell-outer" *ngFor="let cell of col.entries">
+        <div class="periodic-cell periodic-rank-{{ cell.rank }}">
+          <div class="periodic-cell-rank">
+            +{{ cell.rank }}
+          </div>
+          <h5 class="periodic-cell-slug">
+            {{ cell.slug }}
+          </h5>
+          <h6 class="periodic-cell-title">
+            {{ cell.name }}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+</section>
+
+</main>

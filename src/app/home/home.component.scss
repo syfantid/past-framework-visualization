@@ -4,19 +4,20 @@
 
 #hero {
 	height: 90vh;
-	width: 100vw;
+	width: 100%;
 	background-color: #f2f3f9;
 }
 
 #heroImage {
-	background: url(../assets/hero_image.png) right center / contain no-repeat;
+	background: url(../../assets/hero_image.png) right center / contain no-repeat;
 	height: 90%;
-	transition: height 500ms;
+  transition: height 500ms;
+  width: 100%;
 }
 
 @media (max-width: 992px) {
 	#heroImage {
-		background: url(../assets/hero_image_sm.png) center top / contain no-repeat;
+		background: url(../../assets/hero_image_sm.png) center top / contain no-repeat;
 		height: 60%;
 		transition: height 500ms;
 	}
@@ -24,7 +25,8 @@
 
 #title {
 	padding-top: 18%;
-	padding-left: 6rem;
+  padding-left: 6rem;
+  width: 100%;
 }
 
 h1 {
@@ -64,6 +66,10 @@ h1 {
 		font-size: 2.5em;
 		transition: font-size 500ms;
 	}
+}
+
+#title-sm {
+  width: 100%;
 }
 
 @media (max-width: 992px) {
@@ -195,7 +201,12 @@ input[type='range']::-webkit-slider-thumb {
 	background: #f2f3f9;
 	border-radius: 7px;
 	h4 {
+		font-family: 'Roboto Mono', monospace;
+		font-weight: 700;
 		color: #023d8b;
+	}
+	p {
+		font-family: 'Roboto Mono', monospace;
 	}
 }
 
@@ -203,5 +214,9 @@ input[type='range']::-webkit-slider-thumb {
 	// min-height: 100%;
 	h1 {
 		font-size: 2em;
+	}
+	h4 {
+		font-family: 'Roboto Mono', monospace;
+		font-weight: 700;
 	}
 }
