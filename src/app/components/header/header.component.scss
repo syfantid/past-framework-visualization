@@ -1,0 +1,20 @@
+#mainNavBar {
+	padding: 1.5rem 4rem;
+	font-family: 'Roboto Mono', monospace;
+	font-weight: 700;
+	font-size: 1.6em;
+	background-color: #f2f3f9;
+	color: #023d8b;
+	.nav-item {
+		padding: 0 1rem;
+	}
+	.active .nav-link {
+		color: #5962b9;
+	}
+	a {
+		color: #023d8b;
+	}
+	a:hover {
+		color: #5962b9;
+	}
+}

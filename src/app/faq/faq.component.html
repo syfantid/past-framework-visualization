@@ -1,0 +1,69 @@
+<main>
+<section id="faq" class="container">
+  <div class="row">
+      <div class="col">
+        <h1>FAQ</h1>
+        <ol>
+            <li class="pt-5">
+                <h4>What are the Persuasive System Design Techniques?</h4>
+                <p>Behavioural change theories do not provide specific details on how their theoretical components could be translated into a real-world self-tracking system. To bridge this gap, Oinas-Kukkonen et al.<sup>2</sup> have proposed a computer-science based framework for Persuasive Systems Design (PSD). PSD is widely adopted and appreciated as a standard that describes the content and software functionality required in a Behavior Change product or service. In particular, the PSD framework defines four categories of strategies, namely, primary task support, dialogue support, credibility, and social support; each category has seven sub-groups within, which include the following categories:</p>
+                <ul>
+                    <li><h5>Reduction:</h5> The system has to decrease the effort and strain users consume when doing their target behavior by reducing complex behaviors into simple and easy tasks for users.</li>
+                    <li><h5>Tunneling:</h5> The system has to guide users in the attitude change process or experience by providing opportunities for action performance that makes the user nearer to the target behavior.</li>
+                    <li><h5>Tailoring:</h5> The system offers tailored information for its user group according to their interests, needs, personality, or other factors related to the user group.</li>
+                    <li><h5>Personalization:</h5> The system has to provide personalized content and customized services for users.</li>
+                    <li><h5>Self-monitoring:</h5> The system has to give means for users to track and monitor their performance, progress, or status in accomplishing their goals.</li>
+                    <li><h5>Simulation:</h5> The system needs to give means for observing and noticing the connection between the cause and effect of users' behavior.</li>
+                    <li><h5>Rehearsal:</h5> The system must deliver means for rehearsing a target behavior.</li>
+                    <li><h5>Praise:</h5> The system has to deliver praise through images, symbols, words, videos, or sounds as an approach to give user feedback information regarding his/her behavior.</li>
+                    <li><h5>Rewards:</h5> The system should offer virtual rewards for users to provide credit for doing the target behavior.</li>
+                    <li><h5>Reminders:</h5> The system has to remind users to perform their target behavior while using the system. </li>
+                    <li><h5>Suggestion:</h5> The system has to suggest ways that users can achieve the target behavior and maintain performing behavior during the use of the system.</li>
+                    <li><h5>Similarity:</h5> The system must imitate its users in some particular manner, so the system should remind the users of themselves in a meaningful way. </li>
+                    <li><h5>Liking:</h5> The system should be visually attractive and contain a look and feel that meets its users' desires and appealing.</li>
+                    <li><h5>Social role:</h5> The system has to adopt a social role by supporting the communication between users and the system's specialists.</li>
+                    <li><h5>Trustworthiness:</h5> The system has to give truthful, fair, reasonable, and unbiased information.</li>
+                    <li><h5>Expertise:</h5> The system has to offer information displaying experience, knowledge, and competence.</li>
+                    <li><h5>Surface credibility:</h5> The system must have a competent look and feel that portrays system credibility based on an initial assessment.</li>
+                    <li><h5>Real-world feel:</h5> The system must give information about the organization or the real individuals behind its content and services.</li>
+                    <li><h5>Authority:</h5> The system should refer to people in the role of authority.</li>
+                    <li><h5>Third-party endorsements:</h5> The system should deliver endorsements from well-known and respected sources.</li>
+                    <li><h5>Verifiability:</h5> The system has to give means to investigate the accuracy of the system content through external sources.</li>
+                    <li><h5>Social learning:</h5> The system has to give a user the ability to observe other users and their performance outcomes while they are doing their target behavior.</li>
+                    <li><h5>Social comparison:</h5> The system should enable users to compare their performance with other users' performance.</li>
+                    <li><h5>Normative influence:</h5> The system has to have a feature for gathering together individuals that have identical objectives and let them feel norms.</li>
+                    <li><h5>Social facilitation:</h5> The system should enable a user to discern other users who are performing the target behavior along with him/her.</li>
+                    <li><h5>Cooperation:</h5> The system should offer the opportunity for a user to cooperate with other users to achieve the target behavior goal.</li>
+                    <li><h5>Competition:</h5> The system should allow a user to compete with other users. In the competition principle, there is a chance for winning or losing a race.</li>
+                    <li><h5>Recognition:</h5> The system has to offer public recognition (e.g., ranking) for users who do their target behavior.</li>
+                </ul>
+            </li>
+            <li class="pt-5">
+                <h4>How do you know which techniques are more effective?</h4>
+                <p>To find out which design techniques have more persuasive power in self-tracking, we devise an evidence-based score for each technique based upon the reported results of the included papers in our literature review. This score ranges between +1 and +5, with higher scores holding more persuasive power for health behavior change. All design principles are important, but those with a score of +5 carry more weight than those with a +1 or +2. No single technique can guarantee success, but combining multiple techniques can boost the odds of increased physical activity and sustained user engagement in self-tracking.</p>
+            </li>
+            <li class="pt-5">
+                <h4>How do you calculate the score?</h4>
+                <p>We encode the result of an investigated paper in a range from -1 to 1, where -1 corresponds to a negative result, and 1 to a positive result. A result is considered positive if the respective paper's intervention led to a statistically significant increase in the users' physical activity and negative if it led to a statistically significant decrease. Note that if a paper utilizes different techniques, we assume that all techniques have equal contribution to the final result. The final score is a combination of each design technique's reported efficacy and its usage frequency in the investigated papers.<br>
+                    We define the efficacy of a technique, as the sum of the coded results of the papers the technique appears in divided by the number of these papers, and the frequency of a technique, as the number of papers that the technique appears divided by the total number of papers. Then, we generate the final score by utilizing a weighted average of each technique's efficacy and frequency and normalize it in the [0,1] interval. We define the final PAST_score as follows:</p>
+                <p class="text-center">PAST_score(t<sub>i</sub>) = w * efficacy(t<sub>i</sub>) + (1 - w) * frequency(t<sub>i</sub>)</p>
+            </li>
+            <li class="pt-5">
+                <h4>Why is weighting important?</h4>
+                <p>We deemed this weighted combination necessary to avoid over-rewarding infrequent techniques for individual positive results or over-rewarding frequent techniques only for their prevalence in the investigated papers.</p>
+            </li>
+            <li class="pt-5">
+                <h4>How do I read the table?</h4>
+                <p>Each element in the table represents a factor derived from the PSD framework or additional persuasive techniques encountered in the investigated papers, namely, goal-setting, punishment, general information provision, and variability (32 elements in total). Elements in our periodic table are divided into five categories (Primary Task Support, Dialogue, Social Support, System Credibility, Other) similar to PSD and are organized in columns respectively. Each cell contains an abbreviation for the technique, the technique's name, as well as the technique's PAST_score. Each technique is color-coded based on its assigned PAST_score.</p>
+            </li>
+        </ol>
+      </div>      
+  </div>
+  <div class="row" id="ref">
+      <div class="col">
+          <p><sup>2</sup><span>Oinas-Kukkonen, Harri, and Marja Harjumaa. "A systematic framework for designing and evaluating persuasive systems." International conference on persuasive technology. Springer, Berlin, Heidelberg, 2008.</span></p>
+      </div>
+  </div>
+</section>
+
+</main>
