@@ -1,6 +1,9 @@
 # PAST Framework Visualization
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+A visualization tool for the PAST component of the PAST SELF Framework (paper under submission).
+
+## Online Version
+https://syfantid.github.io/past-framework-visualization/
 
 ## Development server
 
