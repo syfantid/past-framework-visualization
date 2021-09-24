@@ -1,0 +1,30 @@
+technique;efficacy;frequency;name;category;slug
+29;;;Goal Setting;Other;Gs
+5;;;Self-monitoring;Primary Task Support;Sm
+9;;;Rewards;Dialogue;Re
+4;;;Personalization;Primary Task Support;Pe
+11;;;Suggestion;Dialogue;Su
+10;;;Reminders;Dialogue;Rm
+23;;;Social Comparison;Social Support;Sc
+22;;;Social Learning;Social Support;Sl
+1;;;Reduction;Primary Task Support;Rd
+26;;;Cooperation;Social Support;Co
+12;;;Similarity;Dialogue;Si
+8;;;Praise;Dialogue;Pr
+27;;;Competition;Social Support;Cm
+13;;;Liking;Dialogue;Li
+28;;;Recognition;Social Support;Rc
+14;;;Social Role;Dialogue;Sr
+30;;;Punishment;Other;Pu
+25;;;Social Facilitation;Social Support;Sf
+2;;;Tailoring;Primary Task Support;Ta
+19;;;Authority;System Credibility;Au
+3;;;Tunneling;Primary Task Support;Tu
+6;;;Simulation;Primary Task Support;Su
+24;;;Normative Influence;Social Support;Ni
+18;;;Real-world Feel;System Credibility;Rf
+16;;;Expertise;System Credibility;Ex
+7;;;Rehearsal;Primary Task Support;Rh
+15;;;Trustworthiness;System Credibility;Tr
+32;;;General Information;Other;Gi
+31;;;Variability;Other;Va

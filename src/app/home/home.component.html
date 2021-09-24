@@ -47,6 +47,67 @@
              [(ngModel)]="weight2" class="form-control" />
     </div>
   </div>
+  <div class="row">
+    <div class="col my-1">
+      <div class="dropdown">
+        <button class="btn btn-primary btn-lg btn-block dropdown-toggle"
+                id="dropdown1" type="button"
+                data-toggle="dropdown" aria-expanded="false">
+          Cohort
+          <span class="badge bg-secondary"><span *ngIf="cohort.length == 0">all</span><span *ngIf="cohort.length > 0">{{cohort.length}}</span></span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdown1">
+          <div class="m-2">
+            <div *ngFor="let co of cohortOptions">
+              <label>
+                <input type="checkbox"
+                       name="cohort[]"
+                       value="{{co.name}}"
+                       (change)="changeCohort()"
+                       [(ngModel)]="co.selected" />
+                {{co.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col my-1">
+      <div class="dropdown">
+        <button class="btn btn-primary btn-lg btn-block dropdown-toggle"
+                id="dropdown2" type="button"
+                data-toggle="dropdown" aria-expanded="false">
+          Sample Size
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdown2">
+          <div class="m-2">
+            <input type="number" min="0" max="400" name="minSampleSize" [(ngModel)]="minSampleSize" (change)="changeSampleSize()" style="width: 75px;"> to 400+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col my-1">
+      <div class="dropdown">
+        <button class="btn btn-primary btn-lg btn-block dropdown-toggle"
+                id="dropdown3" type="button"
+                data-toggle="dropdown" aria-expanded="false">
+          Duration (weeks)
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdown3">
+          <div class="m-2">
+            <input type="number" min="0" max="52" [(ngModel)]="minDuration" (change)="changeDuration()" style="width: 75px;"> to 52+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="">
+
+    <div id="popup-cohort" class="collapse show">
+
+    </div>
+
+  </div>
 </div>
 
 
