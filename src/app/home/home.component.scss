@@ -11,7 +11,7 @@
 #heroImage {
   background: url(../../assets/images/hero_image.png) right center / contain
     no-repeat;
-  height: 90%;
+  height: 80%;
   transition: height 500ms;
   width: 100%;
 }
@@ -233,6 +233,11 @@ input[type="range"]::-webkit-slider-thumb {
 
 // scroll to position hero button
 
+#scrollToTable {
+  position: relative;
+  top: 450px;
+}
+
 .demoBtn a {
   position: absolute;
   bottom: -30px;
@@ -252,13 +257,20 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #scrollBtn a {
-  padding-top: 30px;
+  padding-top: 90px;
   cursor: pointer;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 449px) {
   #scrollBtn a {
-    padding-top: 100px;
+    padding-top: 85px;
+  }
+  #title-sm {
+    font-size: 0.9rem;
+    margin-top: -50px !important;
+  }
+  div {
+    padding-top: 10px !important;
   }
 }
 
