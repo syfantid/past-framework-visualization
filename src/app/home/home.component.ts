@@ -1,12 +1,19 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {loadInputFile, loadMappingFile, filterSubset, calculateFrequency, calculateEfficacy, combineSubset} from '../app.data';
-import {HttpClient} from '@angular/common/http';
-import {PeriodicTable} from '../app.model';
+import { Component, Injectable, OnInit } from '@angular/core';
+import {
+  loadInputFile,
+  loadMappingFile,
+  filterSubset,
+  calculateFrequency,
+  calculateEfficacy,
+  combineSubset,
+} from '../app.data';
+import { HttpClient } from '@angular/common/http';
+import { PeriodicTable } from '../app.model';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 @Injectable()
 export class HomeComponent implements OnInit {
@@ -23,29 +30,28 @@ export class HomeComponent implements OnInit {
   minSampleSize: number = null;
 
   cohortOptions = [
-    {name: 'General population', selected: false},
-    {name: 'Children', selected: false},
-    {name: 'Adolescents', selected: false},
-    {name: 'Elderly', selected: false},
-    {name: 'Families', selected: false},
-    {name: 'Racial minority', selected: false},
-    {name: 'Women only', selected: false},
-    {name: 'Men only', selected: false},
-    {name: 'Amateur athletes', selected: false},
-    {name: 'University students', selected: false},
-    {name: 'Office workers', selected: false},
-    {name: 'Inactive population', selected: false},
-    {name: 'Overweight population', selected: false},
-    {name: 'Obese population', selected: false},
-    {name: 'Patients with cancer', selected: false},
-    {name: 'Patients with diabetes', selected: false},
-    {name: 'Patients with heart disease', selected: false},
-    {name: 'Patients with serious mental illness', selected: false},
-    {name: 'Cancer survivors', selected: false},
+    { name: 'General population', selected: false },
+    { name: 'Children', selected: false },
+    { name: 'Adolescents', selected: false },
+    { name: 'Elderly', selected: false },
+    { name: 'Families', selected: false },
+    { name: 'Racial minority', selected: false },
+    { name: 'Women only', selected: false },
+    { name: 'Men only', selected: false },
+    { name: 'Amateur athletes', selected: false },
+    { name: 'University students', selected: false },
+    { name: 'Office workers', selected: false },
+    { name: 'Inactive population', selected: false },
+    { name: 'Overweight population', selected: false },
+    { name: 'Obese population', selected: false },
+    { name: 'Patients with cancer', selected: false },
+    { name: 'Patients with diabetes', selected: false },
+    { name: 'Patients with heart disease', selected: false },
+    { name: 'Patients with serious mental illness', selected: false },
+    { name: 'Cancer survivors', selected: false },
   ];
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   async ngOnInit(): Promise<any> {
     this.template = await loadMappingFile(this.http);
@@ -59,10 +65,20 @@ export class HomeComponent implements OnInit {
   }
 
   async applyFilters() {
-    const subset = filterSubset(this.inputs, this.cohort, this.minSampleSize, this.minDuration);
+    const subset = filterSubset(
+      this.inputs,
+      this.cohort,
+      this.minSampleSize,
+      this.minDuration
+    );
     const frequencies = calculateFrequency(subset);
     const efficacies = calculateEfficacy(subset);
-    this.table = combineSubset(this.template, frequencies, efficacies, this.weight1);
+    this.table = combineSubset(
+      this.template,
+      frequencies,
+      efficacies,
+      this.weight1
+    );
   }
 
   async changeWeights(newValue): Promise<void> {
@@ -87,5 +103,11 @@ export class HomeComponent implements OnInit {
   }
   async changeSampleSize(): Promise<void> {
     this.applyFilters();
+  }
+
+  scroll() {
+    document
+      .querySelector('#scrollToTable')
+      .scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }

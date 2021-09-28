@@ -3,13 +3,14 @@
 /* Hero start */
 
 #hero {
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   background-color: #f2f3f9;
 }
 
 #heroImage {
-  background: url(../../assets/images/hero_image.png) right center / contain no-repeat;
+  background: url(../../assets/images/hero_image.png) right center / contain
+    no-repeat;
   height: 90%;
   transition: height 500ms;
   width: 100%;
@@ -17,16 +18,18 @@
 
 @media (max-width: 992px) {
   #hero {
-    height: 100%;
     padding-bottom: 2rem;
+    height: 90vh;
   }
   #heroImage {
-    background: url(../../assets/images/hero_image_sm.png) center top / contain no-repeat;
+    background: url(../../assets/images/hero_image_sm.png) center top / contain
+      no-repeat;
     transition: height 500ms;
     height: 60%;
   }
-  #title {
-    height: 40vh;
+  #title-sm {
+    padding-top: 0 !important;
+    margin: 0 !important;
   }
 }
 
@@ -37,7 +40,7 @@
 }
 
 h1 {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-weight: 700;
   text-transform: none;
   color: #023d8b;
@@ -128,19 +131,19 @@ h1 {
     }
 
     .periodic-cell.periodic-rank-1 {
-      @include rank(#E69CC7);
+      @include rank(#e69cc7);
     }
     .periodic-cell.periodic-rank-2 {
-      @include rank(#A46FB0);
+      @include rank(#a46fb0);
     }
     .periodic-cell.periodic-rank-3 {
-      @include rank(#7E5CA5);
+      @include rank(#7e5ca5);
     }
     .periodic-cell.periodic-rank-4 {
-      @include rank(#524C99);
+      @include rank(#524c99);
     }
     .periodic-cell.periodic-rank-5 {
-      @include rank(#023D8B);
+      @include rank(#023d8b);
     }
 
     .periodic-cell {
@@ -161,7 +164,7 @@ h1 {
       .periodic-cell-slug {
         font-weight: 700;
         font-size: 30px;
-        font-family: 'Chakra Petch', sans-serif;
+        font-family: "Chakra Petch", sans-serif;
       }
 
       .periodic-cell-title {
@@ -195,7 +198,7 @@ h1 {
   width: 100%;
 }
 
-input[type='range']::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   width: 15px;
   -webkit-appearance: none;
   height: 15px;
@@ -208,12 +211,12 @@ input[type='range']::-webkit-slider-thumb {
   background: #f2f3f9;
   border-radius: 7px;
   h4 {
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
     font-weight: 700;
     color: #023d8b;
   }
   p {
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
   }
 }
 
@@ -223,7 +226,76 @@ input[type='range']::-webkit-slider-thumb {
     font-size: 2em;
   }
   h4 {
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
     font-weight: 700;
   }
+}
+
+// scroll to position hero button
+
+.demoBtn a {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  z-index: 2;
+  display: inline-block;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: #5962b9;
+  font: normal 400 20px/1 "Josefin Sans", sans-serif;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.demoBtn a:hover {
+  opacity: 0.5;
+}
+
+#scrollBtn a {
+  padding-top: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  #scrollBtn a {
+    padding-top: 100px;
+  }
+}
+
+#scrollBtn a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 30px;
+  height: 50px;
+  margin-left: -15px;
+  border: 2px solid #5962b9;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+#scrollBtn a span::before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #5962b9;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+#scrollBtn a span::after {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  content: "";
+  margin-left: -9px;
+  border-left: 1px solid #5962b9;
+  border-bottom: 1px solid #5962b9;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
 }
