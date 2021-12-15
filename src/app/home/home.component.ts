@@ -105,9 +105,9 @@ export class HomeComponent implements OnInit {
     this.applyFilters();
   }
 
-  scroll() {
+  scroll(id) {
     document
-      .querySelector('#scrollToTable')
+      .querySelector(id)
       .scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }

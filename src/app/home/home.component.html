@@ -19,14 +19,78 @@
       </div>
     </div>
     <section id="scrollBtn" class="demoBtn">
-      <a (click)="scroll()"><span></span></a>
+      <a (click)="scroll('#scrollToTable')"><span></span></a>
     </section>
   </section>
 
   <div id="scrollToTable"></div>
 
-  <section id="periodicTable" class="container pt-5">
-    <div class="adjustment">
+  <section class="container py-5">
+    <h1 class="py-5 text-center">The PAST SELF Framework</h1>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="card p-4 mb-3">
+          <img
+            src="../../assets/images/past_icon.png"
+            class="card-img-top"
+            alt="past icon"
+            width="50%"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              PAST: PERIODIC TABLE OF SELF-TRACKING DESIGN
+            </h5>
+            <p class="card-text">
+              An evidence-based tool to showcase the efficacy of different
+              design components for HBC in ST.
+            </p>
+            <a
+              (click)="scroll('#past-tool')"
+              class="btn btn-primary btn-block mt-5"
+              >Go to PAST tool</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="card p-4 mb-3">
+          <img
+            src="../../assets/images/self_icon.png"
+            class="card-img-top"
+            alt="self icon"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              SELF: SELF-TRACKING EVALUATION FRAMEWORK
+            </h5>
+            <p class="card-text">
+              A standarized framework to evaluate ST technology for sustained
+              UE.<br /><br />
+            </p>
+            <a
+              (click)="scroll('#self-tool')"
+              class="btn btn-primary btn-block mt-5"
+              >Go to SELF framework</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="periodicTable" class="container py-5">
+    <div id="past-tool"></div>
+    <h2 class="py-5">
+      PAST: Periodic Table of Successful Health Behaviour Change
+    </h2>
+    <p class="pb-2">
+      The PAST component analyzes 117 articles from 2008 to 2020 to identify the
+      most effective persuasive techniques for increasing physical activity
+      across cohort, sample size, and experiment duration, in an effort to
+      facilitate self-tracking technology design. Please adjust the weights and
+      filtering options according to your application’s needs.
+    </p>
+    <div class="adjustment mb-5">
       <div class="text-center">
         <h4>Adjust the weights to your application's needs.</h4>
       </div>
@@ -153,13 +217,11 @@
       </div>
     </div>
 
-    <h1 class="py-5">Periodic Table of Successful Health Behaviour Change</h1>
-
     <div *ngIf="!table">
       <p class="text-center">Loading ...</p>
     </div>
 
-    <div class="periodic-table" *ngIf="table">
+    <div class="periodic-table mt-2" *ngIf="table">
       <div class="periodic-column" *ngFor="let col of table.columns">
         <h4>{{ col.name }}</h4>
 
@@ -180,4 +242,586 @@
     </div>
     <div class="clearfix"></div>
   </section>
+  <section class="container py-5">
+    <div id="self-tool"></div>
+    <h2 class="py-5">
+      PAST: Periodic Table of Successful Health Behaviour Change
+    </h2>
+    <p class="pb-2">
+      The SELF component extracts all reported metrics from related work in the
+      field of self-tracking technology for health behavior change focusing on
+      physical activity, and organizes them under four aspects of ubiquitous
+      User Engagement (UE), in an effort to facilitate self-tracking technology
+      evaluation..
+    </p>
+    <div class="row pt-2">
+      <div class="col-xs-12 col-md-6 col-xl-3">
+        <div class="card p-4 mb-3">
+          <img
+            src="../../assets/images/mirror_icon.png"
+            class="card-img-top"
+            alt="perceived self aspect icon"
+            width="50%"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">Perceived Self Aspect</h5>
+            <p class="card-text pt-3">
+              The Perceived Self Aspect of UE refers to the user’s self-reported
+              image of their life regarding their everyday experiences, as well
+              as psychological, technological, social, and health factors, and
+              is usually measured through qualitative evaluation methods.
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary btn-block mt-5"
+              data-toggle="modal"
+              data-target="#modal-perceived"
+            >
+              Show Table
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-xl-3">
+        <div class="card p-4 mb-3">
+          <img
+            src="../../assets/images/physical_icon.png"
+            class="card-img-top"
+            alt="physical self aspect icon"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">Physical Self Aspect</h5>
+            <p class="card-text pt-3">
+              The Physical Self Aspect of UE refers to the user’s physical
+              reaction to the interaction with system, which in ST technology
+              can be for example interpreted as the PA performed in response to
+              the system’s intervention. Thus, it includes all PA-related
+              quantities from the investigated articles.
+              <br /><br />
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary btn-block mt-5"
+              data-toggle="modal"
+              data-target="#modal-physical"
+            >
+              Show Table
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-xl-3">
+        <div class="card p-4 mb-3">
+          <img
+            src="../../assets/images/behavioral_icon.png"
+            class="card-img-top"
+            alt="behavioral self aspect icon"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">Behavioral Self Aspect</h5>
+            <p class="card-text pt-3">
+              The Behavioral Self Aspect of UE refers to the user’s behavioral
+              response to the system, which in ST takes the form of UE metrics,
+              such as wear-time, and session duration.
+              <br /><br />
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary btn-block mt-5"
+              data-toggle="modal"
+              data-target="#modal-behavioral"
+            >
+              Show Table
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-xl-3">
+        <div class="card p-4 mb-3">
+          <img
+            src="../../assets/images/climate_icon.png"
+            class="card-img-top"
+            alt="environmental aspect icon"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">Environemntal Aspect</h5>
+            <p class="card-text pt-3">
+              The Environmental Aspect of UE refers to external factors that may
+              affect the user’s interaction with the system, such as weather or
+              location. Hence, we identified and incorporated in this aspect all
+              metadata reported in the investigated articles.
+              <br /><br />
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary btn-block mt-5"
+              data-toggle="modal"
+              data-target="#modal-environmental"
+            >
+              Show Table
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div
+    class="modal fade"
+    id="modal-perceived"
+    tabindex="-1"
+    aria-labelledby="modal-perceived"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-perceived">
+            Perceived Self Aspect of UE
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover table-sm">
+            <thead>
+              <tr>
+                <th colspan="2" scope="col" class="text-center tab-head1">
+                  EMOTIOLAL ASPECT OF UE
+                </th>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">User Factors</th>
+                <th scope="col" class="text-center tab-head2">
+                  Psychological Factors
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tab-body">
+              <tr>
+                <td>
+                  <ul>
+                    <li>Demographics</li>
+                    <li>Technology Habits & Competency</li>
+                    <li>PA Habits & Competency</li>
+                    <li>Sedentary Habits</li>
+                    <li>Dietary Habits</li>
+                    <li>Daily Life</li>
+                    <li>Time Perspective</li>
+                    <li>Habit Formation</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Personality Traits</li>
+                    <li>Self-Efficacy</li>
+                    <li>Stage of Behavior Change</li>
+                    <li>Behavioral Self-Regulation</li>
+                    <li>Motivation</li>
+                    <li>Emotional State</li>
+                    <li>Goals & Expectations</li>
+                    <li>Attitude & Intentions toward HBC</li>
+                    <li>Attitudes toward Technology</li>
+                    <li>Attitudes toward Appearance & Self-Esteem</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">HCI Factors</th>
+                <th class="trans-col"></th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>System Usability</li>
+                    <li>System Usefulness</li>
+                    <li>User Experience & User Satisfaction</li>
+                  </ul>
+                </td>
+                <td class="trans-col"></td>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">
+                  Social Factors
+                </th>
+                <th scope="col" class="text-center tab-head2">
+                  Health Factors
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Social Support</li>
+                    <li>Social Influence & Social Norm</li>
+                    <li>Social Comparison Techniques</li>
+                    <li>Group Cohesion & Closeness</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Physical Health</li>
+                    <li>Mental Health</li>
+                    <li>Health Literacy</li>
+                    <li>Quality of Life</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="modal-physical"
+    tabindex="-1"
+    aria-labelledby="modal-physical"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-physical">
+            Physical Self Aspect of UE
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover table-sm">
+            <thead>
+              <tr>
+                <th colspan="2" scope="col" class="text-center tab-head1">
+                  COGNITIVE ASPECT OF UE
+                </th>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2b">
+                  PHYSICAL ACTIVITY
+                </th>
+                <th scope="col" class="text-center tab-head2b">OTHERS</th>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">
+                  Generic Activity Characteristics
+                </th>
+                <th scope="col" class="text-center tab-head2">
+                  Sedentariness Characteristics
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tab-body">
+              <tr>
+                <td>
+                  <ul>
+                    <li>Energy Expenditure (MET)</li>
+                    <li>Energy Expenditure (Calories)</li>
+                    <li>Heart Rate</li>
+                    <li>Number of Planned Activity Sessions</li>
+                    <li>Number of Executed Activity Sessions</li>
+                    <li>Time in-between Activity Sessions</li>
+                    <li>Activity Session Duration</li>
+                    <li>Total Activity Duration</li>
+                    <li>Number of Active Days</li>
+                    <li>Activity Intensity</li>
+                    <li>Activity Type</li>
+                    <li>MVPA Duration</li>
+                    <li>Number of MVPA Bouts</li>
+                    <li>MVPA Bout Duration</li>
+                    <li>Performance Improvement</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Total Sedentariness Duration</li>
+                    <li>Sedentary Bout Duration</li>
+                    <li>Number of Sedentary Bouts</li>
+                    <li>Number of Sit-to-stand Transitions</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">
+                  Walking-specific Characteristics
+                </th>
+                <th scope="col" class="text-center tab-head2">
+                  Goal Accomplishment Characteristics
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Step Count</li>
+                    <li>Floor Count</li>
+                    <li>Walking Duration</li>
+                    <li>Distance Walked</li>
+                    <li>Average Mile Time</li>
+                    <li>Walking Velocity</li>
+                    <li>Time in-between Walks</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Goal Accomplishment Rate</li>
+                    <li>Frequency of Goal Compliance</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">
+                  Running-specific Characteristics
+                </th>
+                <th class="trans-col"></th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Running Duration</li>
+                    <li>Running Distance</li>
+                    <li>Running Velocity</li>
+                    <li>Lap Time</li>
+                  </ul>
+                </td>
+                <td class="trans-col"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    style="left: 10%; width: 80%; margin-left: auto; margin-right: auto"
+    id="modal-behavioral"
+    tabindex="-1"
+    aria-labelledby="modal-behavioral"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-behavioral">
+            Behavioral Self Aspect of UE
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover table-sm">
+            <thead>
+              <tr>
+                <th colspan="3" scope="col" class="text-center tab-head1">
+                  BEHAVIORAL ASPECT OF UE
+                </th>
+              </tr>
+              <tr>
+                <th scope="col" colspan="2" class="text-center tab-head2b">
+                  INTRA-SESSION (WITHIN &#8594; ACTIVITY)
+                </th>
+                <th scope="col" class="text-center tab-head2b">
+                  INTER-SESSION (ACROSS &#8594; LOYALTY)
+                </th>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">Involvement</th>
+                <th scope="col" class="text-center tab-head2">Granularity</th>
+                <th scope="col" class="text-center tab-head2">
+                  Session to Session
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tab-body">
+              <tr>
+                <td>
+                  <ul>
+                    <li>Dwell Time</li>
+                    <li>Session Duration</li>
+                    <li>
+                      Screen & Page Views (Screen Tap & Button Press Depth)
+                    </li>
+                    <li>Revisit Rate</li>
+                    <li>Glances Rate (Bounce Rate)</li>
+                  </ul>
+                </td>
+                <td rowspan="5" class="text-center">
+                  Feature<br />&#8595;<br />Page<br />&#8595;<br />Visit<br />&#8595;<br />Session
+                </td>
+                <td>
+                  <ul>
+                    <li>Time between Sessions (Absence Time)</li>
+                    <li>Distance Walked between Sessions</li>
+                    <li>Step Count between Sessions</li>
+                    <li>MVPA between Sessions</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">Interaction</th>
+                <th scope="col" class="text-center tab-head2">
+                  Session to Extended Period
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Number of Content Shares, Comments & Likes</li>
+                    <li>Number of Feature Accesses</li>
+                    <li>
+                      Number of Accepted Notifications (e.g. reminders,
+                      recommendations)
+                    </li>
+                    <li>
+                      Number of Content Views (e.g. messages, posts, e-mails)
+                    </li>
+                    <li>Notifications & Content Response Time</li>
+                    <li>Time till PA</li>
+                    <li>Number of Watch App Accesses (*)</li>
+                    <li>Number of Watch Screen Swipes (*)</li>
+                    <li>Tapped Watch Screen Locations (*)</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Number of Active & Valid Wear Days</li>
+                    <li>Number of Sessions</li>
+                    <li>Total Usage & Wear Time</li>
+                    <li>Number of Screen Taps & Button Presses</li>
+                    <li>Number of Content Shares, Comments, Likes</li>
+                    <li>Number of Content Views</li>
+                    <li>Attrition Rate</li>
+                    <li>Number of PA Joined Challenges (IA)</li>
+                    <li>Number of Swapped Commodities & Rewards (IA)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">Contribution</th>
+                <th class="trans-col"></th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Number of Set PA Goals</li>
+                    <li>Number of Replies (e.g. messages, EMA)</li>
+                    <li>Number of UGC Posts</li>
+                  </ul>
+                </td>
+                <td class="trans-col"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="modal-environmental"
+    tabindex="-1"
+    aria-labelledby="modal-environmental"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-environmental">
+            Environmental Self Aspect of UE
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover table-sm">
+            <thead>
+              <tr>
+                <th colspan="3" scope="col" class="text-center tab-head1">
+                  ENVIRONMENTAL ASPECT OF UE
+                </th>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">
+                  User Constraints
+                </th>
+                <th scope="col" class="text-center tab-head2">
+                  Geographical Constraints
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tab-body">
+              <tr>
+                <td>
+                  <ul>
+                    <li>Daily Schedule</li>
+                    <li>Daily Commute</li>
+                    <li>Antropometrics</li>
+                    <li>Cardiorespiratory Fitness</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Geolocation</li>
+                    <li>Indoor Location</li>
+                    <li>Visited Places</li>
+                    <li>Weather</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="col" class="text-center tab-head2">
+                  Social Constraints
+                </th>
+                <th scope="col" class="text-center tab-head2">
+                  Time Constraints
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Social Network</li>
+                    <li>Social Interactions</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Time and Day of the Week</li>
+                    <li>Holidays</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
